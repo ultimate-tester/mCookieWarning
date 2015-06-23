@@ -1,6 +1,7 @@
 (function ($) {
     $.mCookieWarning = function (options) {
         var settings = $.extend({
+            location: 'bottom', // top, left, right or bottom
             message: 'This site uses cookies!',
             agreeText: 'Close',
             declineText: 'Decline',
@@ -26,6 +27,7 @@
         }
 
         $messageWrapper = $('<div id="mCookie-warning"></div>').prependTo($('body'));
+        $messageWrapper.css(settings.location.toLowerCase(), '0');
         $messageWrapper.html(settings.message);
 
         if (settings.showMoreInfo == true) {
